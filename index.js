@@ -9,7 +9,6 @@ const resultRoutes = require("./routes/results");
 const app = express();
 const port = process.env.PORT || 5000;
 const path = require("path");
-const Result =require('./models/results')
 
 // Connect to MongoDB
 connectDB();
