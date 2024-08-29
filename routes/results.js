@@ -26,3 +26,4 @@ router.get("/results/:passport", async (req, res) => {
     res.status(500).json({ message: "Error fetching result", error: err });
   }
 });
+module.exports = router;
