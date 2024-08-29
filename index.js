@@ -5,9 +5,11 @@ require('dotenv').config({
 })
 const connectDB = require("./utils/mongoConnector");
 const pdfRoutes = require("./routes/pdf");
+const resultRoutes = require("./routes/results");
 const app = express();
 const port = process.env.PORT || 5000;
 const path = require("path");
+const Result =require('./models/results')
 
 // Connect to MongoDB
 connectDB();
@@ -26,13 +28,13 @@ app.get("/", (req, res) => {
 });
 
 
-
 // Serve the uploads folder as a static directory
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 // API routes
 app.use("/api/pdf", pdfRoutes);
+app.use("/api",resultRoutes );
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
